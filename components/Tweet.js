@@ -1,28 +1,28 @@
-const Tweet = () => {
+const Tweet = ({ data = {} }) => {
+  const {
+    user: { screen_name, name },
+    id_str,
+    full_text,
+    created_at,
+  } = data;
   return (
-    <div className="p-4">
-      {/* <div className="p-4 rounded shadow-md hover:shadow-lg transition duration-300 ease-linear"> */}
+    <a href={`https://tweetstamp.org/${id_str}`} className="block p-4">
       <header className="flex items-center">
         <div className="w-12">
           <img src="/twitter.png" alt="Twitter Logo" className="rounded-full" />
         </div>
         <div className="ml-3">
-          <h1 className="text-lg font-semibold">Taylor Gonzalez</h1>
-          <p className="text-sm text-gray-500 leading-tight">@dope</p>
+          <h1 className="text-lg font-semibold">{name}</h1>
+          <p className="text-sm text-gray-500 leading-tight">@{screen_name}</p>
         </div>
       </header>
       <article className="my-4">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
+        <p>{full_text}</p>
       </article>
       <footer>
-        <p>Fri May 15 23:30:31 +0000 2020</p>
+        <p>{created_at}</p>
       </footer>
-    </div>
+    </a>
   );
 };
 

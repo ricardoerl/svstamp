@@ -6,8 +6,7 @@ const handler = nextConnect();
 handler.use(middleware);
 
 handler.get(async (req, res) => {
-  let doc = await req.db.collection('tweets').find();
-  console.log(doc);
+  let doc = await req.db.collection('tweets').find().toArray();
   res.json(doc);
 });
 

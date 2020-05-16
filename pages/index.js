@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import Tweet from '../components/Tweet';
 
-const Home = () => {
+const Home = ({ tweets = [] }) => {
   return (
     <div>
       <Head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <title>Inicio</title>==
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ffffff" />
@@ -40,14 +40,25 @@ const Home = () => {
             </div>
           </form>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 row-gap-2 mt-6">
-          {[...Array(10)].map((item, index) => (
-            <Tweet key={index} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-6">
+          {tweets.map((tweet) => (
+            <Tweet data={tweet} key={tweet._id} />
           ))}
         </div>
       </div>
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const res = await fetch(`${process.env.API_BASE}/api/tweets`);
+  const tweets = await res.json();
+
+  return {
+    props: {
+      tweets,
+    },
+  };
+}
 
 export default Home;
