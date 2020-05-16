@@ -11,7 +11,9 @@
   "author": "Ricardi Ramírez",
   "license": "MIT",
   "dependencies": {
+    "mongodb": "^3.5.7",
     "next": "^9.4.0",
+    "next-connect": "^0.6.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
