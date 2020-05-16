@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Stamp from '../components/Stamp';
+import Tweet from '../components/Tweet';
 
 const Home = () => {
   return (
@@ -42,7 +42,7 @@ const Home = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 row-gap-2 mt-6">
           {[...Array(10)].map((item, index) => (
-            <Stamp key={index} />
+            <Tweet key={index} />
           ))}
         </div>
       </div>

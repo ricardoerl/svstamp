@@ -1,4 +1,4 @@
-const Stamp = () => {
+const Tweet = () => {
   return (
     <div className="p-4">
       {/* <div className="p-4 rounded shadow-md hover:shadow-lg transition duration-300 ease-linear"> */}
@@ -26,4 +26,4 @@ const Stamp = () => {
   );
 };
 
-export default Stamp;
+export default Tweet;
