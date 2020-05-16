@@ -50,15 +50,15 @@ const Home = ({ tweets = [] }) => {
   );
 };
 
-export async function getStaticProps() {
-  const res = await fetch(`${process.env.API_BASE}/api/tweets`);
-  const tweets = await res.json();
+// export async function getStaticProps() {
+//   const res = await fetch(`${process.env.API_BASE}/api/tweets`);
+//   const tweets = await res.json();
 
-  return {
-    props: {
-      tweets,
-    },
-  };
-}
+//   return {
+//     props: {
+//       tweets,
+//     },
+//   };
+// }
 
 export default Home;
