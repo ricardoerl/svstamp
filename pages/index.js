@@ -96,7 +96,7 @@ class Home extends Component {
           ></link>
         </Head>
         <div className="p-5">
-          <div className="text-center sm:py-8">
+          <header className="text-center sm:py-8">
             <h1 className="text-3xl">El Salvador Stamp</h1>
             <p>
               Colección de tweets de El Salvador marcados utilizando{' '}
@@ -130,12 +130,27 @@ class Home extends Component {
                 </button>
               </div>
             </form>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-6">
+          </header>
+          <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 my-6">
             {tweets.map((tweet) => (
               <Tweet data={tweet} key={tweet._id} />
             ))}
-          </div>
+          </main>
+          <footer className="text-center">
+            <a
+              className="text-blue-500 mx-2"
+              href="https://github.com/ricardoerl/stampi"
+            >
+              Código fuente
+            </a>
+            &bull;
+            <a
+              className="text-blue-500 mx-2"
+              href="https://github.com/ricardoerl/stampi/issues/new"
+            >
+              Reportar problema
+            </a>
+          </footer>
         </div>
       </div>
     );
