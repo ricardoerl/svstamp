@@ -11,10 +11,13 @@
   "author": "Ricardi Ramírez",
   "license": "MIT",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "isomorphic-unfetch": "^3.0.0",
     "mongodb": "^3.5.7",
     "next": "^9.4.0",
     "next-connect": "^0.6.6",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "sweetalert2": "^9.10.13"
   }
 }
