@@ -6,7 +6,7 @@ const Tweet = ({ data = {} }) => {
     created_at,
   } = data;
   return (
-    <a href={`https://tweetstamp.org/${id_str}`} className="block p-4">
+    <div className="p-4">
       <header className="flex items-center">
         <div className="w-12">
           <img src="/twitter.png" alt="Twitter Logo" className="rounded-full" />
@@ -20,9 +20,14 @@ const Tweet = ({ data = {} }) => {
         <p>{full_text}</p>
       </article>
       <footer>
-        <p>{created_at}</p>
+        <a
+          href={`https://tweetstamp.org/${id_str}`}
+          className="inline-block border-b border-blue-500"
+        >
+          {created_at}
+        </a>
       </footer>
-    </a>
+    </div>
   );
 };
 
