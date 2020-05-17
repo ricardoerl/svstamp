@@ -1,6 +1,6 @@
 const Tweet = ({ data = {} }) => {
   const {
-    user: { screen_name, name },
+    user: { screen_name, name, avatar },
     id_str,
     full_text,
     created_at,
@@ -9,7 +9,7 @@ const Tweet = ({ data = {} }) => {
     <div className="p-4">
       <header className="flex items-center">
         <div className="w-12">
-          <img src="/twitter.png" alt="Twitter Logo" className="rounded-full" />
+          <img src={avatar} alt="Twitter Logo" className="rounded-full" />
         </div>
         <div className="ml-3">
           <h1 className="text-lg font-semibold">{name}</h1>
