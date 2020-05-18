@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import Tweet from '../components/Tweet';
 
 import { request } from '../services/api';
+import { validateTweetstampURL } from '../utils';
 
 const swalOptions = {
   showCancelButton: false,
@@ -32,6 +33,17 @@ class Home extends Component {
 
     // Change loading status
     this.setState({ isLoading: true });
+
+    // Validate url
+    if (!validateTweetstampURL(url)) {
+      Swal.fire({
+        ...swalOptions,
+        title: 'Enlace no válido',
+        text: 'Por favor ingresar un enlace de tweetstamp.org',
+        icon: 'error',
+      });
+      return;
+    }
 
     // Display loading message
     Swal.fire({
@@ -117,7 +129,7 @@ class Home extends Component {
                   value={url}
                   onChange={this.handleChange}
                   placeholder="Pegar enlace de @tweet_stamp"
-                  aria-label="Enlace de tweet_stamp"
+                  aria-label="Enlace de tweetstamp.org"
                   disabled={isLoading}
                   required
                 />
