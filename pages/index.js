@@ -42,6 +42,10 @@ class Home extends Component {
         text: 'Por favor ingresar un enlace de tweetstamp.org',
         icon: 'error',
       });
+
+      // Reset utl
+      this.setState({ url: '' });
+
       return;
     }
 
@@ -65,6 +69,7 @@ class Home extends Component {
         // Change loading status
         this.setState({
           isLoading: false,
+          url: '',
         });
 
         // Display response message
