@@ -40,7 +40,7 @@ handler.post(async (req, res) => {
 
     // Scraping new stamp
     console.log('Scraping recent Stamp as Tweet');
-    const tweet = await scrapper(url);
+    const tweet = await scraper(url);
 
     // Insert new tweet
     console.log('Saving Tweet');
