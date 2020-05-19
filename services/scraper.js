@@ -12,7 +12,7 @@ const scraper = async (url = '') => {
   const rawobject = $('.ots-details').children().first().text(); // Tweet object
   const object = JSON.parse(rawobject);
   const name = $('.card-title').text();
-  const avatar = $('.card-body img').attr('src');
+  const avatar = $('.card-body img').attr('src').replace('http', 'https');
 
   // Create stamp object
   const stamp = {
