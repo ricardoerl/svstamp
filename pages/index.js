@@ -15,7 +15,7 @@ const swalOptions = {
 class Home extends Component {
   state = {
     url: '',
-    tweets: this.props.tweets,
+    tweets: this.props.tweets || [],
     isLoading: false,
   };
 
@@ -174,14 +174,14 @@ class Home extends Component {
   }
 }
 
-export async function getStaticProps() {
-  // const res = await fetch(`${process.env.API_BASE}/api/tweets`);
-  // const tweets = await res.json();
-  // return {
-  //   props: {
-  //     tweets,
-  //   },
-  // };
-}
+// export async function getStaticProps() {
+// const res = await fetch(`${process.env.API_BASE}/api/tweets`);
+// const tweets = await res.json();
+// return {
+//   props: {
+//     tweets,
+//   },
+// };
+// }
 
 export default Home;
