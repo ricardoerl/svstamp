@@ -44,7 +44,7 @@ class Home extends Component {
       });
 
       // Reset utl
-      this.setState({ url: '' });
+      this.setState({ url: '', isLoading: false });
 
       return;
     }
