@@ -10,19 +10,26 @@ handler.use(middleware);
 handler.post(async (req, res) => {
   const body = JSON.parse(req.body);
   const { url } = body;
-  // Create Stamp object
-  const stamp = {
-    ...body,
-    id: getIdFromURL(url),
-  };
+  const stampId = getIdFromURL(url);
 
   // Checking if Stamp alredy exist
   console.log('Existence checking for new Stamp');
-  const exist = await req.db
-    .collection('stamps')
-    .find({ url }, { url: 1 })
-    .limit(1)
-    .toArray();
+  let exist = [];
+  try {
+    exist = await req.db
+      .collection('tweets')
+      .find({ 'stamp.id': stampId })
+      .limit(1)
+      .toArray();
+  } catch (error) {
+    console.log('Error', error);
+    res.status(500).json({
+      message: 'Error al consultar Stamp',
+      description:
+        'Hubo un error al verificar el enlace, por favor intenta en otro momento.',
+      type: 'error',
+    });
+  }
 
   if (!!exist.length) {
     // Notify Stamp alredy exist
@@ -34,17 +41,43 @@ handler.post(async (req, res) => {
       type: 'info',
     });
   } else {
-    // Insert new stamp
-    console.log('Saving new Stamp');
-    await req.db.collection('stamps').insertOne(stamp);
-
     // Scraping new stamp
     console.log('Scraping recent Stamp as Tweet');
-    const tweet = await scraper(url);
+    let tweet = {};
+    try {
+      const scrap = await scraper(url);
+      tweet = {
+        ...scrap,
+        stamp: {
+          id: stampId,
+          url,
+        },
+      };
+    } catch (error) {
+      console.log('Error', error);
+      res.status(500).json({
+        message: 'Error al consultar Stamp',
+        description:
+          'Hubo un error al consultar el enlace, por favor verifica si es un enlace existente.',
+        type: 'error',
+      });
+      return;
+    }
 
     // Insert new tweet
     console.log('Saving Tweet');
-    await req.db.collection('tweets').insertOne(tweet);
+    try {
+      await req.db.collection('tweets').insertOne(tweet);
+    } catch (error) {
+      console.log('Error', error);
+      res.status(500).json({
+        message: 'Error al guardar Tweet',
+        description:
+          'Hubo un error al guardar el enlace, por favor intenta en otro momento.',
+        type: 'error',
+      });
+      return;
+    }
 
     res.status(200).json({
       message: 'Stamp guardado con éxito',
