@@ -113,7 +113,11 @@ class Home extends Component {
             <h1 className="text-3xl">El Salvador Stamp</h1>
             <p>
               Colección de tweets de El Salvador marcados utilizando{' '}
-              <a href="https://tweetstamp.org/" className="text-blue-500">
+              <a
+                href="https://tweetstamp.org/"
+                className="text-blue-700"
+                title="Enlace a tweetstamp.org"
+              >
                 @tweet_stamp
               </a>
             </p>
@@ -130,12 +134,13 @@ class Home extends Component {
                   value={url}
                   onChange={this.handleChange}
                   placeholder="Pegar enlace de @tweet_stamp"
+                  title="Enlace de tweetstamp.org"
                   aria-label="Enlace de tweetstamp.org"
                   disabled={isLoading}
                   required
                 />
                 <button
-                  className="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded"
+                  className="flex-shrink-0 bg-blue-700 hover:bg-blue-800 border-blue-700 hover:border-blue-800 text-sm border-4 text-white py-1 px-2 rounded"
                   type="submit"
                   disabled={isLoading}
                 >
@@ -151,15 +156,17 @@ class Home extends Component {
           </main>
           <footer className="text-center">
             <a
-              className="text-blue-500 mx-2"
+              className="text-blue-700 mx-2"
               href="https://github.com/ricardoerl/stampi"
+              title="Enlace a código fuente"
             >
               Código fuente
             </a>
             &bull;
             <a
-              className="text-blue-500 mx-2"
+              className="text-blue-700 mx-2"
               href="https://github.com/ricardoerl/stampi/issues/new"
+              title="Enlace a reportar problema"
             >
               Reportar problema
             </a>
