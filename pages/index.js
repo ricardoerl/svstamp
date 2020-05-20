@@ -107,10 +107,6 @@ class Home extends Component {
           <title>Inicio</title>==
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#ffffff" />
-          <link
-            href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-            rel="stylesheet"
-          ></link>
         </Head>
         <div className="p-5">
           <header className="text-center sm:py-8">
