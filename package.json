@@ -8,7 +8,7 @@
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Ricardi Ramírez",
+  "author": "Ricardo Ramírez",
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^9.8.0",
