@@ -1,16 +1,16 @@
 # stampi
 
-Generic tweet aggregator using [@tweet_stamp](https://tweetstamp.org/).
+Agregador genérico de tweets usando [@tweet_stamp](https://tweetstamp.org/).
 
 ## Roadmap
 
-- [x] Show tweets grid from database
-- [x] Save and validate new stamps
-- [ ] Support basic filters (author)
-- [ ] Optimize tailwindcss integration
-- [ ] Add how to contribute
-- [ ] Add pagination support
-- [ ] Add swr support
-- [ ] Add Typescript support
-- [ ] Add testing coverage
-- [ ] Support advance filters (date, text)
+- [x] Mostrar cuadrícula de tweets de la base de datos
+- [x] Guardar y validar nuevos tweets
+- [] Soporta filtros básicos (autor)
+- [x] Optimizar la integración de tailwindcss
+- [] Agregar cómo contribuir
+- [] Agregar soporte de paginación
+- [] Agregar soporte swr
+- [] Agregar soporte de TypeScript
+- [] Agregar cobertura de testing
+- [] Soporta filtros avanzados (fecha, texto)
