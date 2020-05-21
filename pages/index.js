@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
 import Swal from 'sweetalert2';
 
+import SEO from '../components/SEO';
 import Tweet from '../components/Tweet';
 
 import { request } from '../services/api';
@@ -102,12 +102,7 @@ class Home extends Component {
     const { url = '', tweets, isLoading } = this.state;
     return (
       <div>
-        <Head>
-          <meta charSet="utf-8" />
-          <title>Inicio</title>==
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="theme-color" content="#ffffff" />
-        </Head>
+        <SEO />
         <div className="p-5">
           <header className="text-center sm:py-8">
             <h1 className="text-3xl">El Salvador Stamp</h1>
