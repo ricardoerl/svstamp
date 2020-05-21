@@ -60,7 +60,7 @@ class Home extends Component {
 
     // Dispatch submit request
     await request(
-      '/api/stamps',
+      '/api/tweets',
       {
         method: 'POST',
         body: JSON.stringify({ url }),
