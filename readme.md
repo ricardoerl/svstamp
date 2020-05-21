@@ -6,6 +6,7 @@ Agregador genérico de tweets usando [@tweet_stamp](https://tweetstamp.org/).
 
 - [x] Mostrar cuadrícula de tweets de la base de datos
 - [x] Guardar y validar nuevos tweets
+- [ ] Agregar página de condiciones y término de uso
 - [ ] Soporta filtros básicos (autor)
 - [x] Optimizar la integración de tailwindcss
 - [ ] Agregar cómo contribuir
