@@ -9,12 +9,12 @@ const Tweet = ({ data = {} }) => {
     <div className="p-4">
       <header className="flex items-center">
         <div className="w-12">
-          <img src={avatar} alt={name} className="rounded-full" />
+          <img src={avatar} alt={name} className="rounded-full" title={name} />
         </div>
-        <div className="ml-3">
+        <a href={`https://twitter.com/${screen_name}`} className="ml-3">
           <h1 className="text-lg font-semibold">{name}</h1>
           <p className="text-sm text-gray-700 leading-tight">@{screen_name}</p>
-        </div>
+        </a>
       </header>
       <article className="my-4">
         <p>{full_text}</p>
