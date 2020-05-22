@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
       <header className="text-center sm:pt-8">
         <h1 className="text-3xl">El Salvador Stamp</h1>
         <p>
-          Colección de tweets de El Salvador marcados utilizando{' '}
+          Archivo de tweets de El Salvador marcados utilizando{' '}
           <a
             href="https://tweetstamp.org/"
             className="text-blue-700"

@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 const title = 'El Salvador Stamp';
 const description =
-  'Colección de tweets de El Salvador marcados utilizando @tweet_stamp';
+  'Archivo de tweets de El Salvador marcados utilizando @tweet_stamp';
 const url = 'https://svstamp.com';
 
 const SEO = () => (
