@@ -101,73 +101,41 @@ class Home extends Component {
   render() {
     const { url = '', tweets, isLoading } = this.state;
     return (
-      <div>
+      <>
         <SEO />
-        <div className="p-5">
-          <header className="text-center sm:py-8">
-            <h1 className="text-3xl">El Salvador Stamp</h1>
-            <p>
-              Colección de tweets de El Salvador marcados utilizando{' '}
-              <a
-                href="https://tweetstamp.org/"
-                className="text-blue-700"
-                title="Enlace a tweetstamp.org"
-              >
-                @tweet_stamp
-              </a>
-            </p>
-            <form
-              onSubmit={this.handleSubmit}
-              autoComplete="off"
-              className="max-w-2xl mx-auto mt-6"
+        <form
+          onSubmit={this.handleSubmit}
+          autoComplete="off"
+          className="max-w-2xl mx-auto mt-6"
+        >
+          <div className="flex items-center border-b border-b-2 border-gray-300 py-2">
+            <input
+              name="stampLink"
+              className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+              type="url"
+              value={url}
+              onChange={this.handleChange}
+              placeholder="Pegar enlace de @tweet_stamp"
+              title="Enlace de tweetstamp.org"
+              aria-label="Enlace de tweetstamp.org"
+              disabled={isLoading}
+              required
+            />
+            <button
+              className="flex-shrink-0 bg-blue-700 hover:bg-blue-800 border-blue-700 hover:border-blue-800 text-sm border-4 text-white py-1 px-2 rounded"
+              type="submit"
+              disabled={isLoading}
             >
-              <div className="flex items-center border-b border-b-2 border-gray-300 py-2">
-                <input
-                  name="stampLink"
-                  className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                  type="url"
-                  value={url}
-                  onChange={this.handleChange}
-                  placeholder="Pegar enlace de @tweet_stamp"
-                  title="Enlace de tweetstamp.org"
-                  aria-label="Enlace de tweetstamp.org"
-                  disabled={isLoading}
-                  required
-                />
-                <button
-                  className="flex-shrink-0 bg-blue-700 hover:bg-blue-800 border-blue-700 hover:border-blue-800 text-sm border-4 text-white py-1 px-2 rounded"
-                  type="submit"
-                  disabled={isLoading}
-                >
-                  Guardar
-                </button>
-              </div>
-            </form>
-          </header>
-          <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 my-6">
-            {tweets.map((tweet) => (
-              <Tweet data={tweet} key={tweet._id} />
-            ))}
-          </main>
-          <footer className="text-center">
-            <a
-              className="text-blue-700 mx-2"
-              href="https://github.com/ricardoerl/stampi"
-              title="Enlace a código fuente"
-            >
-              Código fuente
-            </a>
-            &bull;
-            <a
-              className="text-blue-700 mx-2"
-              href="https://github.com/ricardoerl/stampi/issues/new"
-              title="Enlace a reportar problema"
-            >
-              Reportar problema
-            </a>
-          </footer>
-        </div>
-      </div>
+              Guardar
+            </button>
+          </div>
+        </form>
+        <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 my-6">
+          {tweets.map((tweet) => (
+            <Tweet data={tweet} key={tweet._id} />
+          ))}
+        </main>
+      </>
     );
   }
 }
