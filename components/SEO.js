@@ -23,7 +23,7 @@ const SEO = () => (
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
-    <meta property="og:image" content={`${url}/social.png`} />
+    <meta property="og:image" content={`${url}/icon.png`} />
     <meta property="og:image:alt" content={description} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={title} />
@@ -34,7 +34,7 @@ const SEO = () => (
     <meta name="twitter:url" content={url} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${url}/social.png`} />
+    <meta name="twitter:image" content={`${url}/icon.png`} />
     <meta name="twitter:image:alt" content={title} />
   </Head>
 );
