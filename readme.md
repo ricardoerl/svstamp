@@ -22,8 +22,8 @@ Luego en la carpeta del proyecto:
 # Instalar dependencias
 $ npm install
 
-# Ejecutar la aplicación
-$ npm start
+# Ejecutar la aplicación en desarrollo
+$ npm run dev
 ```
 
 Ahora deberías poder ver la aplicación ejecutándose en `http://localhost:3000/`
