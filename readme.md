@@ -1,20 +1,20 @@
-# stampi
+# svstamp
 
-Agregador genérico de tweets usando [@tweet_stamp](https://tweetstamp.org/).
+Código fuente de svtamp.com, un archivo de tweets de El Salvador marcados utilizando @tweet_stamp [@tweet_stamp](https://tweetstamp.org/).
 
 ## Cómo contribuir
 
-### Con ideas o reportar un problema
+### Con sugerencias o reportar un problema
 
-Agradecemos tu interés en ayudar con el proyecto. Para compartir tu idea o reporte puedes crear un _issue_ con la mayor cantidad de información posible para que luego alguien lo pueda pueda revisar. Por favor te sugerimos revisar antes otros _issues_ para evitar duplicados.
+Gracias por el interés en ayudar con el proyecto. Para compartir tu sugerencia o reporte puedes crear un [_issue_](https://github.com/ricardoerl/svstamp/issues/new) con la mayor cantidad de información posible para que luego alguien lo pueda pueda revisar. Por favor revisar antes otros [_issues_](https://github.com/ricardoerl/svstamp/issues) para evitar duplicados.
 
 ### Con código o documentación
 
-Toda ayuda con código o documentación es bienvenida. Puedes revisar el _Roadmap_ actual o cualquiera de los _issues_ abiertos. Si es una sugerencia nueva o cambio importante, abre primero un _issue_ para discutir lo qué te gustaría cambiar.
+Toda ayuda con código o documentación es bienvenida. Puedes revisar el [_Roadmap_](#Roadmap) actual o cualquiera de los [_issues_](https://github.com/ricardoerl/svstamp/issues) abiertos. Si es una sugerencia nueva o cambio importante, abre primero un [_issue_](https://github.com/ricardoerl/svstamp/issues/new) para discutir el cambio.
 
 #### Instalación
 
-Para clonar y ejecutar esta aplicación, se necesita Git y Node.js (12+) instalados en tu computadora.
+Para clonar y ejecutar el proyecto se necesita Git y Node.js (12+) instalados en tu computadora.
 
 Luego en la carpeta del proyecto:
 
@@ -28,7 +28,7 @@ $ npm run dev
 
 Ahora deberías poder ver la aplicación ejecutándose en `http://localhost:3000/`
 
-_Nota:_ Deberas renombrar el archivo `.env.example` a `.env` y colocar las credenciales de la aplicación. Las credenciales por el momento son privadas pero se pueden solicitar contactando al equipo del proyecto.
+_Nota:_ Es necesario renombrar el archivo `.env.example` a `.env` y colocar las credenciales de la aplicación. Las credenciales por el momento son privadas pero se pueden solicitar contactando al equipo del proyecto.
 
 ## Roadmap
 
