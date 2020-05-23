@@ -2,16 +2,69 @@
 
 Agregador genérico de tweets usando [@tweet_stamp](https://tweetstamp.org/).
 
+## Cómo contribuir
+
+### Con ideas o reportar un problema
+
+Agradecemos tu interés en ayudar con el proyecto. Para compartir tu idea o reporte puedes crear un _issue_ con la mayor cantidad de información posible para que luego alguien lo pueda pueda revisar. Por favor te sugerimos revisar antes otros _issues_ para evitar duplicados.
+
+### Con código o documentación
+
+Toda ayuda con código o documentación es bienvenida. Puedes revisar el _Roadmap_ actual o cualquiera de los _issues_ abiertos. Si es una sugerencia nueva o cambio importante, abre primero un _issue_ para discutir lo qué te gustaría cambiar.
+
+#### Instalación
+
+Para clonar y ejecutar esta aplicación, se necesita Git y Node.js (12+) instalados en tu computadora.
+
+Luego en la carpeta del proyecto:
+
+```bash
+# Instalar dependencias
+$ npm install
+
+# Ejecutar la aplicación
+$ npm start
+```
+
+Ahora deberías poder ver la aplicación ejecutándose en `http://localhost:3000/`
+
+_Nota:_ Deberas renombrar el archivo `.env.example` a `.env` y colocar las credenciales de la aplicación. Las credenciales por el momento son privadas pero se pueden solicitar contactando al equipo del proyecto.
+
 ## Roadmap
 
 - [x] Mostrar cuadrícula de tweets de la base de datos
 - [x] Guardar y validar nuevos tweets
-- [ ] Agregar página de condiciones y término de uso
-- [ ] Soporta filtros básicos (autor)
+- [x] Agregar página de condiciones y término de uso
+- [x] Soporta filtros básicos (autor)
 - [x] Optimizar la integración de tailwindcss
-- [ ] Agregar cómo contribuir
+- [x] Agregar cómo contribuir
 - [ ] Agregar soporte de paginación
 - [ ] Agregar soporte swr
+- [ ] Agregar soporte de MirageJS
 - [ ] Agregar soporte de TypeScript
 - [ ] Agregar cobertura de testing
 - [ ] Soporta filtros avanzados (fecha, texto)
+
+## Licencia
+
+MIT License
+
+Copyright (c) 2020 Ricardo Ramírez
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
