@@ -16,7 +16,7 @@ function Info() {
         <a className="text-blue-700" href="https://tweetstamp.org/">
           tweetstamp.org
         </a>{' '}
-        para poder brindar un archivo navegacble y accesible.
+        para poder brindar un archivo navegable y accesible.
       </p>
       <p className="my-2">
         Cualquier enlace de{' '}
@@ -44,7 +44,7 @@ function Info() {
           tweetstamp.org
         </a>
       </p>
-      <p className="my-6 italic">Última actualización: 21 de mayo, 2020</p>
+      <p className="my-6 italic">Última actualización: 23 de mayo, 2020</p>
     </div>
   );
 }
