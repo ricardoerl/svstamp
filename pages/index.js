@@ -6,7 +6,7 @@ import SEO from '../components/SEO';
 import Tweet from '../components/Tweet';
 
 import { request } from '../services/api';
-import { validateTweetstampURL } from '../utils';
+import { validateTweetstampURL, getUsersFromTweets } from '../utils';
 
 const swalOptions = {
   showCancelButton: false,
@@ -16,6 +16,7 @@ class Home extends Component {
   state = {
     url: '',
     tweets: this.props.tweets,
+    tweetstamps: [],
     isLoading: false,
   };
 
@@ -88,18 +89,46 @@ class Home extends Component {
     );
   };
 
+  handleUserChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    const { tweets } = this.state;
+
+    this.setState({
+      tweetstamps:
+        value === 'all'
+          ? tweets
+          : tweets.filter((tweet) => tweet.user.screen_name === value),
+    });
+  };
+
   handleRefresh = async () => {
     // Change loading status
     this.setState({ isLoading: true });
 
     // Dispatch refresh request
     await request(`/api/tweets`, {}, (tweets) => {
-      this.setState({ tweets, isLoading: false });
+      this.setState({
+        tweets,
+        tweetstamps: tweets,
+        users: getUsersFromTweets(tweets),
+        isLoading: false,
+      });
     });
   };
 
+  componentDidMount() {
+    const { tweets } = this.state;
+    this.setState({
+      tweetstamps: tweets,
+      users: getUsersFromTweets(tweets),
+    });
+  }
+
   render() {
-    const { url = '', tweets, isLoading } = this.state;
+    const { url = '', tweetstamps, users = [], isLoading } = this.state;
+
     return (
       <>
         <SEO />
@@ -130,8 +159,38 @@ class Home extends Component {
             </button>
           </div>
         </form>
+        <div className="p-4">
+          <div>
+            <label className="block mb-1" htmlFor="user-filter">
+              Filtrar por usuario:
+            </label>
+            <div className="inline-block relative w-64">
+              <select
+                id="user-filer"
+                className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                onChange={this.handleUserChange}
+              >
+                <option value="all">Todos</option>
+                {users.map(({ label, value }) => (
+                  <option key={value} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg
+                  className="fill-current h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
         <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 my-6">
-          {tweets.map((tweet) => (
+          {tweetstamps.map((tweet) => (
             <Tweet data={tweet} key={tweet._id} />
           ))}
         </main>
