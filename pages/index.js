@@ -15,7 +15,7 @@ const swalOptions = {
 class Home extends Component {
   state = {
     url: '',
-    tweets: this.props.tweets,
+    tweets: [],
     tweetstamps: [],
     isLoading: false,
   };
@@ -109,6 +109,8 @@ class Home extends Component {
 
     // Dispatch refresh request
     await request(`/api/tweets`, {}, (tweets) => {
+      console.log('tweets', tweets);
+
       this.setState({
         tweets,
         tweetstamps: tweets,
@@ -119,11 +121,7 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    const { tweets } = this.state;
-    this.setState({
-      tweetstamps: tweets,
-      users: getUsersFromTweets(tweets),
-    });
+    this.handleRefresh();
   }
 
   render() {
@@ -197,16 +195,6 @@ class Home extends Component {
       </>
     );
   }
-}
-
-export async function getStaticProps() {
-  const res = await fetch(`${process.env.API_BASE}/api/tweets`);
-  const tweets = await res.json();
-  return {
-    props: {
-      tweets,
-    },
-  };
 }
 
 export default Home;
