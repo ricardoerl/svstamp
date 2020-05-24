@@ -28,7 +28,7 @@ $ npm run dev
 
 Ahora deberías poder ver la aplicación ejecutándose en `http://localhost:3000/`
 
-_Nota:_ Es necesario renombrar el archivo `.env.example` a `.env` y colocar las credenciales de la aplicación. Las credenciales por el momento son privadas pero se pueden solicitar contactando al equipo del proyecto.
+_Nota:_ Es necesario renombrar el archivo `.env.example` a `.env`. Las credenciales por el momento son de prueba y tiene limitantes, cualquier problema por favor reportarlo.
 
 ## Roadmap
 
