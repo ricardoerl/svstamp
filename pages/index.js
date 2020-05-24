@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fetch from 'isomorphic-unfetch';
+import ContentLoader from 'react-content-loader';
 import Swal from 'sweetalert2';
 
 import SEO from '../components/SEO';
@@ -109,8 +109,6 @@ class Home extends Component {
 
     // Dispatch refresh request
     await request(`/api/tweets`, {}, (tweets) => {
-      console.log('tweets', tweets);
-
       this.setState({
         tweets,
         tweetstamps: tweets,
@@ -188,13 +186,68 @@ class Home extends Component {
           </div>
         </div>
         <main className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 my-6">
-          {tweetstamps.map((tweet) => (
-            <Tweet data={tweet} key={tweet._id} />
-          ))}
+          {tweetstamps.length ? (
+            tweetstamps.map((tweet) => <Tweet data={tweet} key={tweet._id} />)
+          ) : (
+            <Loader />
+          )}
         </main>
       </>
     );
   }
 }
+
+const Loader = () => (
+  <>
+    <ContentLoader
+      speed={2}
+      width={400}
+      height={160}
+      viewBox="0 0 400 160"
+      backgroundColor="#f3f3f3"
+      foregroundColor="#ecebeb"
+      className="p-2"
+    >
+      <rect x="48" y="8" rx="3" ry="3" width="88" height="6" />
+      <rect x="48" y="26" rx="3" ry="3" width="52" height="6" />
+      <rect x="0" y="56" rx="3" ry="3" width="410" height="6" />
+      <rect x="0" y="72" rx="3" ry="3" width="380" height="6" />
+      <rect x="0" y="88" rx="3" ry="3" width="178" height="6" />
+      <circle cx="20" cy="20" r="20" />
+    </ContentLoader>
+    <ContentLoader
+      speed={2}
+      width={400}
+      height={160}
+      viewBox="0 0 400 160"
+      backgroundColor="#f3f3f3"
+      foregroundColor="#ecebeb"
+      className="p-2"
+    >
+      <rect x="48" y="8" rx="3" ry="3" width="88" height="6" />
+      <rect x="48" y="26" rx="3" ry="3" width="52" height="6" />
+      <rect x="0" y="56" rx="3" ry="3" width="410" height="6" />
+      <rect x="0" y="72" rx="3" ry="3" width="380" height="6" />
+      <rect x="0" y="88" rx="3" ry="3" width="178" height="6" />
+      <circle cx="20" cy="20" r="20" />
+    </ContentLoader>
+    <ContentLoader
+      speed={2}
+      width={400}
+      height={160}
+      viewBox="0 0 400 160"
+      backgroundColor="#f3f3f3"
+      foregroundColor="#ecebeb"
+      className="p-2"
+    >
+      <rect x="48" y="8" rx="3" ry="3" width="88" height="6" />
+      <rect x="48" y="26" rx="3" ry="3" width="52" height="6" />
+      <rect x="0" y="56" rx="3" ry="3" width="410" height="6" />
+      <rect x="0" y="72" rx="3" ry="3" width="380" height="6" />
+      <rect x="0" y="88" rx="3" ry="3" width="178" height="6" />
+      <circle cx="20" cy="20" r="20" />
+    </ContentLoader>
+  </>
+);
 
 export default Home;
