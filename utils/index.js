@@ -5,7 +5,7 @@ export const getIdFromURL = (url = '') => {
 };
 
 export const validateTweetstampURL = (url = '') => {
-  const regexp = /^https:\/\/tweetstamp\.org\/(\d{19})/;
+  const regexp = /^https:\/\/tweetstamp\.org\/(\d{4,20})/;
   return regexp.test(url);
 };
 
