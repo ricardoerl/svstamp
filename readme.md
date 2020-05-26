@@ -37,6 +37,8 @@ Ahora deberías poder ver la aplicación ejecutándose en `http://localhost:3000
 
 _Nota:_ Es necesario renombrar el archivo `.env.example` a `.env`. Las credenciales por el momento son de prueba y tiene limitantes, cualquier problema por favor reportarlo.
 
+_Nota:_ Es requerido ejecutar exitosamente todas las pruebas unitarias antes de contribuir con un cambio. Cada cambio debe llevar pruebas unitarias (si aplica).
+
 ## Roadmap
 
 - [x] Mostrar cuadrícula de tweets de la base de datos
