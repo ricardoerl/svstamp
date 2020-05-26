@@ -6,7 +6,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Ricardo Ramírez",
   "license": "MIT",
@@ -28,6 +28,12 @@
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
-    "jest": "^26.0.1"
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@testing-library/react": "^10.0.4",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1",
+    "react-test-renderer": "^16.13.1"
   }
 }
