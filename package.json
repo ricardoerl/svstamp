@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:coverage": "npm test -- --coverage",
+    "test:badges": "npm run test:coverage  && jest-coverage-badges"
   },
   "author": "Ricardo Ramírez",
   "license": "MIT",
@@ -17,6 +19,7 @@
     "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
     "isomorphic-unfetch": "^3.0.0",
+    "jest-coverage-badges": "^1.1.2",
     "lodash": "^4.17.15",
     "mongodb": "^3.5.7",
     "next": "^9.4.0",
@@ -36,5 +39,10 @@
     "babel-jest": "^26.0.1",
     "jest": "^26.0.1",
     "react-test-renderer": "^16.13.1"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json-summary"
+    ]
   }
 }
