@@ -26,5 +26,8 @@
     "react-dom": "^16.13.1",
     "sweetalert2": "^9.10.13",
     "tailwindcss": "^1.4.6"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
   }
 }
