@@ -1,12 +1,13 @@
 {
-  "name": "stampi",
+  "name": "svstamp",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "Ricardo Ramírez",
   "license": "MIT",
@@ -26,5 +27,14 @@
     "react-dom": "^16.13.1",
     "sweetalert2": "^9.10.13",
     "tailwindcss": "^1.4.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@testing-library/react": "^10.0.4",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1",
+    "react-test-renderer": "^16.13.1"
   }
 }

@@ -24,11 +24,20 @@ $ npm install
 
 # Ejecutar la aplicación en desarrollo
 $ npm run dev
+
+# Ejecutar pruebas unitarias
+$ npm run test
+
+# Ejecutar pruebas unitarias con watch mode
+$ npm run test:watch
+
 ```
 
 Ahora deberías poder ver la aplicación ejecutándose en `http://localhost:3000/`
 
 _Nota:_ Es necesario renombrar el archivo `.env.example` a `.env`. Las credenciales por el momento son de prueba y tiene limitantes, cualquier problema por favor reportarlo.
+
+_Nota:_ Es requerido ejecutar exitosamente todas las pruebas unitarias antes de contribuir con un cambio. Cada cambio debe llevar pruebas unitarias (si aplica).
 
 ## Roadmap
 

@@ -1,7 +1,9 @@
 import uniqBy from 'lodash/uniqBy';
 
 export const getIdFromURL = (url = '') => {
-  return url.match(/\/([^/]*)$/)[1];
+  const match = url.match(/\/([^/]*)$/);
+  const id = match ? match[1] : '';
+  return id;
 };
 
 export const validateTweetstampURL = (url = '') => {
