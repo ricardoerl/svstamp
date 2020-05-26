@@ -39,12 +39,12 @@ function Info() {
         registrar visitas ni realiza ningún seguimiento de comportamiento de
         usuarios. De igual manera, el sitio no almacena ninguna información de
         visitantes a través de <i>cookies</i> y se limita a almacenar la
-        información proporcionda en por el usuario en forma de enlaces de
+        información proporcionda en por el usuario en forma de enlaces de{' '}
         <a className="text-blue-700" href="https://tweetstamp.org/">
           tweetstamp.org
         </a>
       </p>
-      <p className="my-6 italic">Última actualización: 23 de mayo, 2020</p>
+      <p className="my-6 italic">Última actualización: 26 de mayo, 2020</p>
     </div>
   );
 }
