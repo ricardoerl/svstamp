@@ -24,6 +24,13 @@ $ npm install
 
 # Ejecutar la aplicación en desarrollo
 $ npm run dev
+
+# Ejecutar pruebas unitarias
+$ npm run test
+
+# Ejecutar pruebas unitarias con watch mode
+$ npm run test:watch
+
 ```
 
 Ahora deberías poder ver la aplicación ejecutándose en `http://localhost:3000/`
