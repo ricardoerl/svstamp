@@ -9,12 +9,8 @@ import { getIdFromURL } from '../../utils';
 const cors = initMiddleware(
   Cors({
     methods: ['GET', 'POST', 'OPTIONS'],
-    origin: [
-      'http://localhost:3000',
-      'https://stampi-sv.now.sh',
-      'https://svstamp.com',
-    ],
-  }),
+    origin: ['http://localhost:3000', 'https://stampi-sv.now.sh', 'https://svstamp.com'],
+  })
 );
 
 const handler = nextConnect();
@@ -56,7 +52,7 @@ handler.post(async (req, res) => {
     });
   }
 
-  if (!!exist.length) {
+  if (!exist.length) {
     // Notify Stamp alredy exist
     console.log('Stamp already exist');
     res.status(303).json({
