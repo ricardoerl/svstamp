@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import SEO from '../components/SEO';
 import Tweet from '../components/Tweet';
 
-import { request } from '../services/api';
+import request from '../services/api';
 import { validateTweetstampURL, getUsersFromTweets } from '../utils';
 
 const swalOptions = {
@@ -19,6 +19,10 @@ class Home extends Component {
     tweetstamps: [],
     isLoading: false,
   };
+
+  componentDidMount() {
+    this.handleRefresh();
+  }
 
   handleChange = (event) => {
     const {
@@ -85,7 +89,7 @@ class Home extends Component {
         if (refresh) {
           this.handleRefresh();
         }
-      },
+      }
     );
   };
 
@@ -108,7 +112,7 @@ class Home extends Component {
     this.setState({ isLoading: true });
 
     // Dispatch refresh request
-    await request(`/api/tweets`, {}, (tweets) => {
+    await request('/api/tweets', {}, (tweets) => {
       this.setState({
         tweets,
         tweetstamps: tweets,
@@ -117,10 +121,6 @@ class Home extends Component {
       });
     });
   };
-
-  componentDidMount() {
-    this.handleRefresh();
-  }
 
   render() {
     const { url = '', tweetstamps, users = [], isLoading } = this.state;
@@ -157,12 +157,11 @@ class Home extends Component {
         </form>
         <div className="p-4">
           <div>
-            <label className="block mb-1" htmlFor="user-filter">
+            <p className="block mb-1" htmlFor="user-filter">
               Filtrar por usuario:
-            </label>
+            </p>
             <div className="inline-block relative w-64">
               <select
-                id="user-filer"
                 className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                 onChange={this.handleUserChange}
               >
