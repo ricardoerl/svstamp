@@ -11,7 +11,8 @@
     "test:coverage": "npm test -- --coverage",
     "test:badge": "npm run test:coverage && make-coverage-badge",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write ./**/*.{js,css}"
   },
   "author": "Ricardo Ramírez",
   "license": "MIT",
@@ -62,7 +63,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && npm run format"
     }
   },
   "lint-staged": {
