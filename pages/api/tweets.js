@@ -52,7 +52,7 @@ handler.post(async (req, res) => {
     });
   }
 
-  if (!exist.length) {
+  if (exist.length > 0) {
     // Notify Stamp alredy exist
     console.log('Stamp already exist');
     res.status(303).json({
