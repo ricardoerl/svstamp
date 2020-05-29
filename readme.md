@@ -41,6 +41,16 @@ _Nota:_ Es necesario renombrar el archivo `.env.example` a `.env`. Las credencia
 
 _Nota:_ Es requerido ejecutar exitosamente todas las pruebas unitarias antes de contribuir con un cambio. Cada cambio debe llevar pruebas unitarias (si aplica).
 
+##### Probar el proyecto en modo producción
+
+```bash
+# Construir la aplicación en producción
+$ npm run build
+
+# Ejecutar la aplicación en producción en servidor local
+$ npm run start
+```
+
 ## Roadmap
 
 - [x] Mostrar cuadrícula de tweets de la base de datos
