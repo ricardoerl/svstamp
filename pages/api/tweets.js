@@ -1,15 +1,15 @@
-import Cors from "cors";
-import nextConnect from "next-connect";
-import database from "../../middleware/database";
-import initMiddleware from "../../middleware/init-middleware";
-import { getIdFromURL } from "../../utils";
-import { ExistentError } from "../../middleware/error-handling";
-import { validateExistingStamp, scrap, storeTweet } from "./helpers";
+import Cors from 'cors';
+import nextConnect from 'next-connect';
+import database from '../../middleware/database';
+import initMiddleware from '../../middleware/init-middleware';
+import { getIdFromURL } from '../../utils';
+import { ExistentError } from '../../middleware/error-handling';
+import { validateExistingStamp, scrap, storeTweet } from './helpers';
 
 // Initialize the cors middleware
 const cors = initMiddleware(
   Cors({
-    methods: ["GET", "POST", "OPTIONS"],
+    methods: ['GET', 'POST', 'OPTIONS'],
     origin: process.env.ALLOWED_ORIGINS,
   })
 );
@@ -20,7 +20,7 @@ const corsMiddleware = async (req, res, next) => {
 };
 
 const getTweets = async (req, res) => {
-  const doc = await req.db.collection("tweets").find().toArray();
+  const doc = await req.db.collection('tweets').find().toArray();
   res.json(doc);
 };
 
@@ -41,8 +41,8 @@ const createStamp = async (req, res) => {
     await storeTweet(req.db, tweet);
 
     res.status(200).json({
-      message: "Stamp guardado con éxito",
-      type: "success",
+      message: 'Stamp guardado con éxito',
+      type: 'success',
       refresh: true,
     });
   } catch (e) {

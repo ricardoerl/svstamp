@@ -41,10 +41,13 @@
       "error",
       {
         "objects": "always-multiline",
-        "arrays": "always-multiline"
+        "arrays": "always-multiline",
+        "imports": "always-multiline"
       }
     ],
     "react/state-in-constructor": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "operator-linebreak": "off",
+    "max-classes-per-file": "off"
   }
 }
