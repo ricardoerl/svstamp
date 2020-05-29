@@ -11,7 +11,12 @@ const Tweet = ({ data = {} }) => {
         <div className="w-12">
           <img src={avatar} alt={name} className="rounded-full" title={name} />
         </div>
-        <a href={`https://twitter.com/${screen_name}`} className="ml-3">
+        <a
+          href={`https://twitter.com/${screen_name}`}
+          className="ml-3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <h1 className="text-lg font-semibold">{name}</h1>
           <p className="text-sm text-gray-700 leading-tight">{`@${screen_name}`}</p>
         </a>
@@ -24,6 +29,8 @@ const Tweet = ({ data = {} }) => {
           href={`https://tweetstamp.org/${id_str}`}
           className="inline-block border-b border-blue-500"
           title="Fecha de creación de Stamp"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {created_at}
         </a>
