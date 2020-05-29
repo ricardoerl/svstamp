@@ -1,4 +1,4 @@
-const initMiddleware = (middleware) => {
+export default function initMiddleware(middleware) {
   return (req, res) =>
     new Promise((resolve, reject) => {
       middleware(req, res, (result) => {
@@ -8,6 +8,4 @@ const initMiddleware = (middleware) => {
         return resolve(result);
       });
     });
-};
-
-export default initMiddleware;
+}
