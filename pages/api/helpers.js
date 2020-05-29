@@ -21,6 +21,7 @@ export const scrap = async (url, stampId) => {
     const data = await scraper(url);
     const tweet = {
       ...data,
+      saved_at: Date.now(),
       stamp: {
         id: stampId,
         url,
