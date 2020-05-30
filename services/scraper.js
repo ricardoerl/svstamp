@@ -1,5 +1,9 @@
 import fetch from 'isomorphic-unfetch';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 import cheerio from 'cheerio';
+
+dayjs.extend(utc);
 
 const scraper = async (url = '') => {
   const scrapping = await fetch(url);
@@ -17,6 +21,8 @@ const scraper = async (url = '') => {
   // Create stamp object
   const stamp = {
     ...object,
+    created_at: dayjs(object.created_at).utc().format(),
+    saved_at: dayjs().utc().format(),
     user: {
       ...object.user,
       name,
