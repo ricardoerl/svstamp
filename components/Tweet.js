@@ -1,8 +1,11 @@
+import { getDateFormat } from '../utils';
+
 const Tweet = ({ data = {} }) => {
   const {
     user: { screen_name, name, avatar },
     id_str,
     full_text,
+    saved_at,
     created_at,
   } = data;
   return (
@@ -24,16 +27,24 @@ const Tweet = ({ data = {} }) => {
       <article className="my-4">
         <p>{full_text}</p>
       </article>
-      <footer>
-        <a
-          href={`https://tweetstamp.org/${id_str}`}
-          className="inline-block border-b border-blue-500"
-          title="Fecha de creación de Stamp"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {created_at}
-        </a>
+      <footer className="py-2 border-t">
+        <p className="text-sm my-1 text-gray-500">
+          Publicado:{' '}
+          <a
+            href={`https://tweetstamp.org/${id_str}`}
+            className="inline-block"
+            title="Fecha de creación de Tweet"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {getDateFormat(created_at)}
+          </a>
+        </p>
+        {saved_at && (
+          <p className="text-sm my-1 text-gray-500">
+            Archivado: {getDateFormat(saved_at)}
+          </p>
+        )}
       </footer>
     </div>
   );
