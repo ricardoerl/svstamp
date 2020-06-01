@@ -1,4 +1,11 @@
 import uniqBy from 'lodash/uniqBy';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+import 'dayjs/locale/es';
+
+dayjs.extend(utc);
+dayjs.extend(localizedFormat);
 
 export const getIdFromURL = (url = '') => {
   const match = url.match(/\/([^/]*)$/);
@@ -17,4 +24,8 @@ export const getUsersFromTweets = (tweets = []) => {
     value: tweet.user.screen_name,
   }));
   return uniqBy(users, 'value');
+};
+
+export const getDateFormat = (date = Date(), format = 'MMMM D, YYYY – h:mm A') => {
+  return dayjs(date).locale('es').format(format);
 };

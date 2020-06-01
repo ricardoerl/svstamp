@@ -63,7 +63,7 @@ $ npm run start
 - [ ] Agregar soporte swr
 - [ ] Agregar soporte de MirageJS
 - [ ] Agregar soporte de TypeScript
-- [ ] Agregar cobertura de testing
+- [x] Agregar cobertura de testing
 - [ ] Soporta filtros avanzados (fecha, texto)
 
 ## Licencia
