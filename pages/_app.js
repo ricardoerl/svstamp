@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
           &bull;
           <Link href="/info">
             <a className="text-blue-700 mx-2" title="Enlace a código fuente">
-              Sobre el proyecto
+              Acerca del proyecto
             </a>
           </Link>
         </p>

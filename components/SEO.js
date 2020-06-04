@@ -1,10 +1,11 @@
 import Head from 'next/head';
 
-const title = 'El Salvador Stamp';
-const description = 'Archivo de tweets de El Salvador marcados utilizando @tweet_stamp';
+const defaultTitle = 'El Salvador Stamp';
+const defaultDescription =
+  'Archivo de tweets de El Salvador marcados utilizando @tweet_stamp';
 const url = 'https://svstamp.com';
 
-const SEO = () => (
+const SEO = ({ title = defaultTitle, description = defaultDescription }) => (
   <Head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
