@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import 'dayjs/locale/es';
-import { getIdFromURL, getDateFormat } from './index';
+import { getIdFromURL, validateTweetstampURL, getDateFormat } from './index';
 
 describe('Get ID from a given URL', () => {
   test('should return an id as string', () => {
@@ -10,6 +10,24 @@ describe('Get ID from a given URL', () => {
   test('should return an empty string', () => {
     const badURL = 'tweetstamp.org';
     expect(getIdFromURL(badURL)).toBe('');
+  });
+});
+
+describe('Validate Tweetstamp URL', () => {
+  test('should return true for a tweetstamp URL', () => {
+    const goodURL = 'https://tweetstamp.org/250810362302185472';
+    expect(validateTweetstampURL(goodURL)).toBe(true);
+  });
+  test('should return false for a non-tweetstamp URL', () => {
+    const badURL = 'https://www.google.com';
+    expect(validateTweetstampURL(badURL)).toBe(false);
+  });
+  test('should return false for a malformed URL', () => {
+    const badURL = 'google.com';
+    expect(validateTweetstampURL(badURL)).toBe(false);
+  });
+  test('should return false for an empty value', () => {
+    expect(validateTweetstampURL()).toBe(false);
   });
 });
 
