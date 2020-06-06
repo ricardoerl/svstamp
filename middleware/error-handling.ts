@@ -1,4 +1,9 @@
 export class ExistentError extends Error {
+  code: number;
+  message: string;
+  description: string;
+  type: string;
+
   constructor() {
     super();
     this.code = 303;
@@ -10,6 +15,11 @@ export class ExistentError extends Error {
 }
 
 export class DBConnectionError extends Error {
+  code: number;
+  message: string;
+  description: string;
+  type: string;
+
   constructor() {
     super();
     this.code = 500;
@@ -21,6 +31,11 @@ export class DBConnectionError extends Error {
 }
 
 export class WebScrapingError extends Error {
+  code: number;
+  message: string;
+  description: string;
+  type: string;
+
   constructor() {
     super();
     this.code = 500;
@@ -32,6 +47,11 @@ export class WebScrapingError extends Error {
 }
 
 export class StoreError extends Error {
+  code: number;
+  message: string;
+  description: string;
+  type: string;
+
   constructor() {
     super();
     this.code = 500;

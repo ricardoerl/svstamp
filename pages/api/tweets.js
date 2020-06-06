@@ -1,9 +1,9 @@
 import Cors from 'cors';
 import nextConnect from 'next-connect';
-import database from '../../middleware/database';
-import initMiddleware from '../../middleware/init-middleware';
+import database from '../../middleware/database.ts';
+import initMiddleware from '../../middleware/init-middleware.ts';
 import { getIdFromURL } from '../../utils';
-import { ExistentError } from '../../middleware/error-handling';
+import { ExistentError } from '../../middleware/error-handling.ts';
 import { validateExistingStamp, scrap, storeTweet } from './helpers';
 
 // Initialize the cors middleware

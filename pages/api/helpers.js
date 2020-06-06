@@ -3,7 +3,7 @@ import {
   DBConnectionError,
   WebScrapingError,
   StoreError,
-} from '../../middleware/error-handling';
+} from '../../middleware/error-handling.ts';
 
 export const validateExistingStamp = async (db, stampId) => {
   console.log('[STAMP] Checking existence');
