@@ -1,4 +1,4 @@
-import scraper from '../../services/scraper';
+import scraper from '../../services/scraper.ts';
 import {
   DBConnectionError,
   WebScrapingError,
