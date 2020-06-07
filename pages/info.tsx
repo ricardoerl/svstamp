@@ -1,4 +1,4 @@
-import SEO from '../components/SEO.tsx';
+import SEO from '../components/SEO';
 
 const Info = () => {
   return (
