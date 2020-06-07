@@ -1,9 +1,9 @@
 import { MongoClient, Db } from 'mongodb';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-type Request = NextApiRequest & {
-  dbClient: MongoClient;
-  db: Db;
+export type DbRequest = NextApiRequest & {
+  db?: Db;
+  dbClient?: MongoClient;
 };
 
 const client = new MongoClient(process.env.MONGODB_URI || '', {
@@ -11,7 +11,7 @@ const client = new MongoClient(process.env.MONGODB_URI || '', {
   useUnifiedTopology: true,
 });
 
-async function database(req: Request, res: NextApiResponse, next: Function) {
+async function database(req: DbRequest, res: NextApiResponse, next: Function) {
   if (!client.isConnected()) await client.connect();
   req.dbClient = client;
   req.db = client.db(process.env.MONGODB_DATABASE);

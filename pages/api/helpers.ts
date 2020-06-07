@@ -1,11 +1,14 @@
-import scraper from '../../services/scraper.ts';
+import { Db } from 'mongodb';
+
+import scraper from '../../services/scraper';
 import {
   DBConnectionError,
   WebScrapingError,
   StoreError,
-} from '../../middleware/error-handling.ts';
+} from '../../middleware/error-handling';
+import { TweetData } from '../../types/';
 
-export const validateExistingStamp = async (db, stampId) => {
+export const validateExistingStamp = async (db: Db, stampId: string) => {
   console.log('[STAMP] Checking existence');
   try {
     const exists = await db.collection('tweets').findOne({ 'stamp.id': stampId });
@@ -15,7 +18,7 @@ export const validateExistingStamp = async (db, stampId) => {
   }
 };
 
-export const scrap = async (url, stampId) => {
+export const scrap = async (url: string, stampId: string) => {
   console.log('[STAMP] Scraping recent Stamp as Tweet');
   try {
     const data = await scraper(url);
@@ -32,7 +35,7 @@ export const scrap = async (url, stampId) => {
   }
 };
 
-export const storeTweet = async (db, tweet) => {
+export const storeTweet = async (db: Db, tweet: TweetData) => {
   console.log('[STAMP] Saving Tweet');
   try {
     await db.collection('tweets').insertOne(tweet);
