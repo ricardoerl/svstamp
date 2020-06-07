@@ -20,6 +20,8 @@
     "@fullhuman/postcss-purgecss": "^2.2.0",
     "@types/cheerio": "^0.22.18",
     "@types/cors": "^2.8.6",
+    "@types/jest": "^25.2.3",
+    "@types/lodash": "^4.14.155",
     "@types/mongodb": "^3.5.20",
     "autoprefixer": "^9.8.0",
     "cheerio": "^1.0.0-rc.3",

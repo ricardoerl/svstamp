@@ -4,6 +4,8 @@ import utc from 'dayjs/plugin/utc';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import 'dayjs/locale/es';
 
+import { TweetData, User } from '../types/';
+
 dayjs.extend(utc);
 dayjs.extend(localizedFormat);
 
@@ -18,8 +20,8 @@ export const validateTweetstampURL = (url = '') => {
   return regexp.test(url);
 };
 
-export const getUsersFromTweets = (tweets = []) => {
-  const users = tweets.map((tweet) => ({
+export const getUsersFromTweets = (tweets: TweetData[] = []) => {
+  const users: User[] = tweets.map((tweet) => ({
     label: `@${tweet.user.screen_name}`,
     value: tweet.user.screen_name,
   }));
