@@ -1,7 +1,7 @@
 {
   "name": "svstamp",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -12,7 +12,7 @@
     "test:badge": "npm run test:coverage && make-coverage-badge",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "format": "prettier --write ./**/*.{js,css}"
+    "format": "prettier --write ./**/*.{ts,css}"
   },
   "author": "Ricardo Ramírez",
   "license": "MIT",
