@@ -1,11 +1,17 @@
 import Head from 'next/head';
 
+type Props = {
+  title?: string;
+  description?: string;
+  url?: string;
+};
+
 const defaultTitle = 'El Salvador Stamp';
 const defaultDescription =
   'Archivo de tweets de El Salvador marcados utilizando @tweet_stamp';
 const url = 'https://svstamp.com';
 
-const SEO = ({ title = defaultTitle, description = defaultDescription }) => (
+const SEO = ({ title = defaultTitle, description = defaultDescription }: Props) => (
   <Head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

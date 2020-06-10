@@ -1,6 +1,12 @@
 import { getDateFormat } from '../utils';
 
-const Tweet = ({ data = {} }) => {
+import { TweetData } from '../types/index';
+
+type Props = {
+  data: TweetData;
+};
+
+const Tweet = ({ data }: Props) => {
   const {
     user: { screen_name, name, avatar },
     id_str,
@@ -8,6 +14,7 @@ const Tweet = ({ data = {} }) => {
     saved_at,
     created_at,
   } = data;
+
   return (
     <div className="p-4">
       <header className="flex items-center">

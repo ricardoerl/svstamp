@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, ChangeEvent, FormEvent } from 'react';
 
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertOptions } from 'sweetalert2';
 
 import SEO from '../components/SEO';
 import Tweet from '../components/Tweet';
@@ -8,31 +8,41 @@ import Loader from '../components/Loader';
 
 import request from '../services/api';
 import { validateTweetstampURL, getUsersFromTweets } from '../utils';
+import { TweetData, User } from '../types/index';
 
 const swalOptions = {
   showCancelButton: false,
 };
 
+type State = {
+  url: string;
+  tweets: TweetData[];
+  tweetstamps: TweetData[];
+  isLoading: boolean;
+  users: User[];
+};
+
 class Home extends Component {
-  state = {
+  state: State = {
     url: '',
     tweets: [],
     tweetstamps: [],
     isLoading: false,
+    users: [],
   };
 
   componentDidMount() {
     this.handleRefresh();
   }
 
-  handleChange = (event) => {
+  handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value },
     } = event;
     this.setState({ url: value });
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const { url } = this.state;
@@ -84,7 +94,7 @@ class Home extends Component {
           icon: type,
           title: message,
           text: description,
-        });
+        } as SweetAlertOptions);
 
         // Trigger refresh
         if (refresh) {
@@ -94,7 +104,7 @@ class Home extends Component {
     );
   };
 
-  handleUserChange = (event) => {
+  handleUserChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const {
       target: { value },
     } = event;
@@ -113,7 +123,7 @@ class Home extends Component {
     this.setState({ isLoading: true });
 
     // Dispatch refresh request
-    await request('/api/tweets', {}, (tweets) => {
+    await request('/api/tweets', {}, (tweets: TweetData[]) => {
       this.setState({
         tweets,
         tweetstamps: tweets,
@@ -124,7 +134,7 @@ class Home extends Component {
   };
 
   render() {
-    const { url = '', tweetstamps, users = [], isLoading } = this.state;
+    const { url, tweetstamps, users, isLoading } = this.state;
 
     return (
       <>
@@ -158,9 +168,9 @@ class Home extends Component {
         </form>
         <div className="p-4">
           <div>
-            <p className="block mb-1" htmlFor="user-filter">
+            <label className="block mb-1" htmlFor="user-filter">
               Filtrar por usuario:
-            </p>
+            </label>
             <div className="inline-block relative w-64">
               <select
                 className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
