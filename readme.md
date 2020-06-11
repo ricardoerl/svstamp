@@ -62,7 +62,7 @@ $ npm run start
 - [ ] Agregar soporte de paginación
 - [ ] Agregar soporte swr
 - [ ] Agregar soporte de MirageJS
-- [ ] Agregar soporte de TypeScript
+- [x] Agregar soporte de TypeScript
 - [x] Agregar cobertura de testing
 - [ ] Soporta filtros avanzados (fecha, texto)
 
