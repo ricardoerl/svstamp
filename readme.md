@@ -2,7 +2,7 @@
 
 ![coverage badge](./coverage/badge.svg)
 
-Código fuente de [svtamp.com](https://svstamp.com/), un archivo de tweets de El Salvador marcados utilizando @tweet_stamp [@tweet_stamp](https://tweetstamp.org/).
+Código fuente de [svtamp.com](https://svstamp.com/), un archivo de tweets de El Salvador marcados utilizando @tweet_stamp [@tweet_stamp](https://tweetstamp.org/). El proyecto utiliza [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [MongoDB](https://www.mongodb.com/cloud/atlas) y [Tailwind CSS](https://tailwindcss.com/).
 
 ## Cómo contribuir
 
