@@ -23,6 +23,7 @@
     "@types/jest": "^25.2.3",
     "@types/lodash": "^4.14.155",
     "@types/mongodb": "^3.5.20",
+    "@types/react-select": "^3.0.13",
     "autoprefixer": "^9.8.0",
     "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
@@ -36,6 +37,7 @@
     "react": "^16.13.1",
     "react-content-loader": "^5.0.4",
     "react-dom": "^16.13.1",
+    "react-select": "^3.1.0",
     "sweetalert2": "^9.10.13",
     "tailwindcss": "^1.4.6"
   },
