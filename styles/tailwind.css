@@ -3,3 +3,9 @@
 /* purgecss end ignore */
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* Custom styles */
+
+.tweet:hover #clipboard {
+  visibility: visible;
+}

@@ -1,4 +1,9 @@
-import { Twitter as TwitterIcon, ExternalLink as ExternalLinkIcon } from 'react-feather';
+import {
+  Twitter as TwitterIcon,
+  ExternalLink as ExternalLinkIcon,
+  Copy as CopyIcon,
+} from 'react-feather';
+import Clipboard from 'react-clipboard.js';
 import { getDateFormat } from '../utils';
 
 import { TweetData } from '../types/index';
@@ -16,36 +21,34 @@ const Tweet = ({ data }: Props) => {
     created_at,
   } = data;
 
+  const stampLink = `https://tweetstamp.org/${id_str}`;
+  const tweetLink = `https://twitter.com/${screen_name}/status/${id_str}`;
+  const userLink = `https://twitter.com/${screen_name}`;
+
   return (
-    <div className="p-4">
+    <div className="tweet p-4">
       <header className="flex items-center">
         <div className="w-12">
-          <a
-            href={`https://twitter.com/${screen_name}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={userLink} target="_blank" rel="noopener noreferrer">
             <img src={avatar} alt={name} className="rounded-full" title={name} />
           </a>
         </div>
-        <a
-          href={`https://twitter.com/${screen_name}`}
-          className="ml-3"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={userLink} className="ml-3" target="_blank" rel="noopener noreferrer">
           <h1 className="text-lg font-semibold">{name}</h1>
           <p className="text-sm text-gray-700 leading-tight">{`@${screen_name}`}</p>
         </a>
-        <div className="flex-grow text-right">
+        <div className="flex flex-grow justify-end">
+          <Clipboard data-clipboard-text={stampLink}>
+            <CopyIcon id="clipboard" className="cursor-pointer invisible text-gray-500" />
+          </Clipboard>
           <a
-            href={`https://twitter.com/${screen_name}/status/${id_str}`}
-            className="inline-block"
+            href={tweetLink}
+            className="ml-3"
             title="Enlace a Tweet original"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <TwitterIcon className="text-right" />
+            <TwitterIcon />
           </a>
         </div>
       </header>
@@ -56,7 +59,7 @@ const Tweet = ({ data }: Props) => {
         <p className="text-sm my-1 text-gray-500">
           Publicado:{' '}
           <a
-            href={`https://tweetstamp.org/${id_str}`}
+            href={stampLink}
             className="inline-block"
             title="Fecha de creación de Tweet"
             target="_blank"
@@ -67,7 +70,7 @@ const Tweet = ({ data }: Props) => {
           </a>
         </p>
         {saved_at && (
-          <p className="text-sm my-1 text-gray-500 align-middle">
+          <p className="text-sm my-1 text-gray-500">
             Archivado: {getDateFormat(saved_at)}
           </p>
         )}
