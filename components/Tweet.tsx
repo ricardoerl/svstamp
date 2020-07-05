@@ -39,8 +39,9 @@ const Tweet = ({ data }: Props) => {
         </a>
         <div className="flex-grow text-right">
           <a
-            href={`https://twitter.com/${screen_name}`}
+            href={`https://twitter.com/${screen_name}/status/${id_str}`}
             className="inline-block"
+            title="Enlace a Tweet original"
             target="_blank"
             rel="noopener noreferrer"
           >
