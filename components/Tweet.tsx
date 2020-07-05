@@ -1,3 +1,4 @@
+import { Twitter as TwitterIcon } from 'react-feather';
 import { getDateFormat } from '../utils';
 
 import { TweetData } from '../types/index';
@@ -19,7 +20,13 @@ const Tweet = ({ data }: Props) => {
     <div className="p-4">
       <header className="flex items-center">
         <div className="w-12">
-          <img src={avatar} alt={name} className="rounded-full" title={name} />
+          <a
+            href={`https://twitter.com/${screen_name}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={avatar} alt={name} className="rounded-full" title={name} />
+          </a>
         </div>
         <a
           href={`https://twitter.com/${screen_name}`}
@@ -30,6 +37,16 @@ const Tweet = ({ data }: Props) => {
           <h1 className="text-lg font-semibold">{name}</h1>
           <p className="text-sm text-gray-700 leading-tight">{`@${screen_name}`}</p>
         </a>
+        <div className="flex-grow text-right">
+          <a
+            href={`https://twitter.com/${screen_name}`}
+            className="inline-block"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <TwitterIcon className="text-right" />
+          </a>
+        </div>
       </header>
       <article className="my-4">
         <p>{full_text}</p>
