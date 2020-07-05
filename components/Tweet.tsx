@@ -1,4 +1,4 @@
-import { Twitter as TwitterIcon } from 'react-feather';
+import { Twitter as TwitterIcon, ExternalLink as ExternalLinkIcon } from 'react-feather';
 import { getDateFormat } from '../utils';
 
 import { TweetData } from '../types/index';
@@ -63,10 +63,11 @@ const Tweet = ({ data }: Props) => {
             rel="noopener noreferrer"
           >
             {getDateFormat(created_at)}
+            <ExternalLinkIcon className="inline-block ml-1 align-bottom w-4" />
           </a>
         </p>
         {saved_at && (
-          <p className="text-sm my-1 text-gray-500">
+          <p className="text-sm my-1 text-gray-500 align-middle">
             Archivado: {getDateFormat(saved_at)}
           </p>
         )}
