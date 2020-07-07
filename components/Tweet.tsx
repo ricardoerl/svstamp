@@ -1,3 +1,4 @@
+import { useState, useCallback, useEffect } from 'react';
 import {
   Twitter as TwitterIcon,
   ExternalLink as ExternalLinkIcon,
@@ -25,8 +26,25 @@ const Tweet = ({ data }: Props) => {
   const tweetLink = `https://twitter.com/${screen_name}/status/${id_str}`;
   const userLink = `https://twitter.com/${screen_name}`;
 
+  const [copied, setCopied] = useState<boolean>(false);
+  const [timeoutRef, setTimeoutRef] = useState<any>(null);
+
+  const handleCopy = useCallback(() => {
+    setCopied(true);
+
+    const timeout = setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+
+    setTimeoutRef(timeout);
+  }, []);
+
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef);
+  }, []);
+
   return (
-    <div className="tweet p-4">
+    <div className={`relative tweet p-4${copied ? ' copied' : ''}`}>
       <header className="flex items-center">
         <div className="w-12">
           <a href={userLink} target="_blank" rel="noopener noreferrer">
@@ -38,7 +56,7 @@ const Tweet = ({ data }: Props) => {
           <p className="text-sm text-gray-700 leading-tight">{`@${screen_name}`}</p>
         </a>
         <div className="flex flex-grow justify-end">
-          <Clipboard data-clipboard-text={stampLink}>
+          <Clipboard data-clipboard-text={stampLink} onSuccess={handleCopy}>
             <CopyIcon id="clipboard" className="cursor-pointer invisible text-gray-500" />
           </Clipboard>
           <a
